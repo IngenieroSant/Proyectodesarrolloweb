@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-light text-dark">
+    <div class="card bg-primary text-white shadow-lg p-4" style="width: 24rem;">
+        <h2 class="text-center mb-4">Registro</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+            <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="ejemplo@ejemplo.com" formControlName="email">
+                <mat-error *ngIf="registerForm.get('email')?.hasError('required')">Es <strong>requerido</strong></mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" placeholder="Contraseña" formControlName="password">
+                <mat-error *ngIf="registerForm.get('password')?.hasError('required')">Es <strong>requerido</strong></mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Confirmar Contraseña</mat-label>
+                <input matInput type="password" placeholder="Confirma tu contraseña" formControlName="confirmPassword">
+                <mat-error *ngIf="registerForm.get('confirmPassword')?.hasError('required')">Es <strong>requerido</strong></mat-error>
+            </mat-form-field>
+
+            <button type="submit" class="btn btn-success w-100">Registrarse</button>
+        </form>
+        <p class="text-center text-dark mt-3">
+            ¿Ya tienes cuenta? 
+            <a routerLink="login" class="text-warning text-decoration-none">Inicia sesión aquí</a>
+        </p>
+    </div>
+</div>
